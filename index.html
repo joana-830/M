@@ -16,17 +16,26 @@
             font-family: Arial, sans-serif;
         }
 
-        .passcode-container {
-            display: grid;
-            grid-template-columns: repeat(3, 80px);
-            gap: 10px;
-            justify-content: center;
+        .container {
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
             align-items: center;
         }
 
+        .passcode-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
         .passcode-container button {
-            width: 80px;
-            height: 80px;
+            width: 100%;
+            aspect-ratio: 1 / 1;
             font-size: 24px;
             border-radius: 50%;
             border: none;
@@ -49,7 +58,7 @@
     </style>
 </head>
 <body>
-    <div>
+    <div class="container">
         <div class="passcode-container">
             <button onclick="enterDigit(1)">1</button>
             <button onclick="enterDigit(2)">2</button>
