@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surpresa</title>
+    <style>
+        body {
+            background: url('/mnt/data/93755169c0aad385b4acf0c9263ed4c5.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .passcode-container {
+            display: grid;
+            grid-template-columns: repeat(3, 80px);
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .passcode-container button {
+            width: 80px;
+            height: 80px;
+            font-size: 24px;
+            border-radius: 50%;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        .passcode-container button:hover {
+            background-color: rgba(255, 255, 255, 1);
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="passcode-container">
+            <button onclick="enterDigit(1)">1</button>
+            <button onclick="enterDigit(2)">2</button>
+            <button onclick="enterDigit(3)">3</button>
+            <button onclick="enterDigit(4)">4</button>
+            <button onclick="enterDigit(5)">5</button>
+            <button onclick="enterDigit(6)">6</button>
+            <button onclick="enterDigit(7)">7</button>
+            <button onclick="enterDigit(8)">8</button>
+            <button onclick="enterDigit(9)">9</button>
+            <button onclick="enterDigit(0)" style="grid-column: 2">0</button>
+        </div>
+        <div class="message" id="message">Digite o código.</div>
+    </div>
+
+    <script>
+        const correctPasscode = "0306";
+        let input = "";
+
+        function enterDigit(digit) {
+            if (input.length < 4) {
+                input += digit;
+            }
+
+            if (input.length === 4) {
+                if (input === correctPasscode) {
+                    window.location.href = "segunda-pagina.html";
+                } else {
+                    document.getElementById('message').textContent = "Tenta novamente. Dica: é o nosso aniversário!";
+                    input = "";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
